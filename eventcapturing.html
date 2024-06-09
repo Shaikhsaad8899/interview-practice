@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Event Bubbling Example</title>
+    <style>
+        ul {
+            list-style: none;
+            padding: 0;
+        }
+        li {
+            padding: 10px;
+            border: 1px solid #ccc;
+            margin-bottom: 5px;
+            cursor: pointer;
+        }
+        li:hover {
+            background-color: #f0f0f0;
+        }
+    </style>
+</head>
+<body>
+    <ul id="list">
+        <li>Item 1</li>
+        <li>Item 2</li>
+        <li>Item 3</li>
+    </ul>
+
+    <script>
+        document.getElementById('list').addEventListener('click', function(event) {
+            // Check if the clicked element is a list item
+            if (event.target.tagName === 'LI') {
+                console.log('Clicked on:', event.target.textContent);
+                // Perform some action, e.g., navigate to a specific page based on the clicked item
+            }
+        });
+    </script>
+</body>
+</html>
+    

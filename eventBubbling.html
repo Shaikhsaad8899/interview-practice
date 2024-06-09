@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Event Bubbling Example</title>
+</head>
+<body>
+    <div id="outer">
+        <button id="inner">Click me!</button>
+    </div>
+
+    <script>
+        document.getElementById('inner').addEventListener('click', function(event) {
+            console.log('Button clicked!');
+            console.log('Event target:', event.target);
+            console.log('Event current target:', event.currentTarget);
+        });
+
+        document.getElementById('outer').addEventListener('click', function(event) {
+            console.log('Outer div clicked!');
+            console.log('Event target:', event.target);
+            console.log('Event current target:', event.currentTarget);
+        });
+    </script>
+</body>
+</html>
+
+<!-- Event bubbling is a concept in JavaScript where an event triggered on a nested element (like a child) will "bubble up" through its ancestors (like parents) in the DOM hierarchy until it reaches the root of the document. -->
+
+<!-- In this example, if you click the button with the id "inner", you'll see both "Button clicked!" and "Outer div clicked!" logged to the console. This is because the click event bubbles up from the button to its parent div, triggering the event handlers attached to each element along the way.
+
+Understanding event bubbling is important for handling events efficiently, especially in cases where multiple elements have event listeners attached, and you want to control the flow of event handling. -->
